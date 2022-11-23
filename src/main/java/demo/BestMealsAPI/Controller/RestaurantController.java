@@ -67,6 +67,7 @@ public class RestaurantController {
         }
     }
 
+    //Calcula a média das avaliações por Restaurant
     @GetMapping("/mediaEvaluations/{id}")
     public double mediaEvaluations(@PathVariable("id") Integer id){
         return restaurantEvaluationRepository.findmediaDasAvaliacoes(id);

@@ -2,7 +2,9 @@ package demo.BestMealsAPI.Controller;
 
 import demo.BestMealsAPI.DTO.MealDTO;
 import demo.BestMealsAPI.Model.Meal;
+import demo.BestMealsAPI.Model.MealEvaluation;
 import demo.BestMealsAPI.Model.Restaurant;
+import demo.BestMealsAPI.Repository.MealEvaluationRepository;
 import demo.BestMealsAPI.Repository.MealRepository;
 import demo.BestMealsAPI.Repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,11 @@ public class MealController {
 
     @Autowired
     private RestaurantRepository restaurantRepository;
+
+    @Autowired
+    private MealEvaluationRepository mealEvaluationRepository;
+
+
 
     @GetMapping("/{id}")
     public ResponseEntity search(@PathVariable("id") Integer id){
@@ -84,5 +91,11 @@ public class MealController {
         } else {
             return null;
         }
+    }
+
+    //Calcula a média das avaliações por Meal
+    @GetMapping("/mediaEvaluations/{id}")
+    public double mediaEvaluations(@PathVariable("id") Integer id){
+        return mealEvaluationRepository.findmediaDasAvaliacoes(id);
     }
 }
