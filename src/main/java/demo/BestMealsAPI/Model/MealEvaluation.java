@@ -1,6 +1,7 @@
 package demo.BestMealsAPI.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import demo.BestMealsAPI.DTO.MealEvaluationDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -22,6 +23,13 @@ public class MealEvaluation {
     private String comment;
 
     public MealEvaluation() {
+    }
+
+    public MealEvaluation(MealEvaluationDTO mealEvaluationDTO, Meal meal) {
+        this.id = meal.getId();
+        this.meal = meal;
+        this.evaluation = mealEvaluationDTO.getEvaluation();
+        this.comment = mealEvaluationDTO.getComment();
     }
 
     public int getId() {

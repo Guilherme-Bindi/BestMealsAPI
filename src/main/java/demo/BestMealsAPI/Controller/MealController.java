@@ -76,7 +76,7 @@ public class MealController {
 
     //Apaga com retorno do objeto apagado
     @DeleteMapping("/remover/{id}")
-    private Optional<Meal> remove(@PathVariable("id") Integer id){
+    public Optional<Meal> remove(@PathVariable("id") Integer id){
         Optional<Meal> aux = repository.findById(id);
         if (!aux.isEmpty()) {
             repository.deleteById(id);
