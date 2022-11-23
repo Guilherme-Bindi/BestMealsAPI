@@ -2,6 +2,7 @@ package demo.BestMealsAPI.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import demo.BestMealsAPI.DTO.MealDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -35,6 +36,12 @@ public class Meal {
     public Meal() {
     }
 
+    public Meal(MealDTO mealDTO, Restaurant restaurant) {
+        this.restaurant = restaurant;
+        this.name = mealDTO.getName();
+        this.cost = mealDTO.getCost();
+        this.ingredients = mealDTO.getIngredients();
+    }
 
     public int getId() {
         return id;
