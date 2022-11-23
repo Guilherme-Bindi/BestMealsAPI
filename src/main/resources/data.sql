@@ -10,3 +10,12 @@ insert into meal (restaurant_id, name, cost, ingredients) values (1,'Especial',2
 
 insert into meal_evaluation (meal_id, evaluation, comment) values (1,5,'Muito bom');
 insert into meal_evaluation (meal_id, evaluation, comment) values (1,4,'Estava delicioso');
+
+
+insert into meal_eval (meal_id, evaluation, comment) values (1,1,'Nao gostei');
+insert into meal_eval (meal_id, evaluation, comment) values (2,1,'Nao gostei');
+insert into meal_eval (meal_id, evaluation, comment) values (2,2,'Nao gostei');
+
+insert into restaurant_eval (restaurant_id, evaluation, comment) values (1,2,'Nao gostei');
+insert into restaurant_eval (restaurant_id, evaluation, comment) values (1,1,'Nao gostei');
+insert into restaurant_eval (restaurant_id, evaluation, comment) values (2,2,'Nao gostei');

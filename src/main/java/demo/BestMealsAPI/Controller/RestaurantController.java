@@ -24,11 +24,17 @@ public class RestaurantController {
 
     //Busca objeto por ID
     @GetMapping("/{id}")
-    private ResponseEntity search(@PathVariable("id") Integer id){
+    public ResponseEntity search(@PathVariable("id") Integer id){
         return repository.findById(id)
                 .map(r -> ResponseEntity.ok().body(r))
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/DTO/{id}")
+    public RestaurantDTO searchDTO(@PathVariable("id") Integer id){
+        return new RestaurantDTO( repository.findById(id).get() );
+    }
+
 
     //Busca todos os restaurantes que contenham parte do nome
     @GetMapping("/nome/{name}")

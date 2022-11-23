@@ -50,11 +50,10 @@
 			<scope>runtime</scope>
 		</dependency>
 
-<!--	Dependencia para auxiliar na utilização de JSON-->
 		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.10</version>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
 
 <!--        <dependency>-->

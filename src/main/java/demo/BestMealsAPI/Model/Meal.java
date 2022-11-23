@@ -30,7 +30,7 @@ public class Meal {
 
     @OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<MealEvaluation> evaluations;
+    private List<MealEval> evaluations;
 
 
     public Meal() {
@@ -83,11 +83,11 @@ public class Meal {
         this.ingredients = ingredients;
     }
 
-    public List<MealEvaluation> getEvaluations() {
+    public List<MealEval> getEvaluations() {
         return evaluations;
     }
 
-    public void setEvaluations(List<MealEvaluation> evaluations) {
+    public void setEvaluations(List<MealEval> evaluations) {
         this.evaluations = evaluations;
     }
 }

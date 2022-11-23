@@ -1,12 +1,7 @@
 package demo.BestMealsAPI.DTO;
 
-import demo.BestMealsAPI.Model.Meal;
-import demo.BestMealsAPI.Model.RestaurantEvaluation;
 import demo.BestMealsAPI.Model.Restaurant;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class RestaurantDTO {
 

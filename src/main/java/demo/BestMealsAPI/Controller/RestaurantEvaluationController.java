@@ -2,6 +2,7 @@ package demo.BestMealsAPI.Controller;
 
 import demo.BestMealsAPI.DTO.RestaurantEvaluationDTO;
 import demo.BestMealsAPI.Model.Restaurant;
+import demo.BestMealsAPI.Model.RestaurantEval;
 import demo.BestMealsAPI.Model.RestaurantEvaluation;
 import demo.BestMealsAPI.Repository.RestaurantEvaluationRepository;
 import demo.BestMealsAPI.Repository.RestaurantRepository;
@@ -31,9 +32,14 @@ public class RestaurantEvaluationController {
                 .orElse( ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/DTO/{id}")
+    public RestaurantEvaluationDTO searchDTO(@PathVariable("id") Integer id){
+        return new RestaurantEvaluationDTO(repository.findById(id).get());
+    }
+
     //Buscar todas as Avaliações de um restaurante
     @GetMapping("/Restaurant/{id}")
-    public List<RestaurantEvaluation> searchEvaluations(@PathVariable("id") Integer id){
+    public List<RestaurantEval> searchEvaluations(@PathVariable("id") Integer id){
         return restaurantRepository.findById(id).get().getEvaluations();
     }
 
@@ -46,6 +52,21 @@ public class RestaurantEvaluationController {
         } else {
             throw new NullPointerException();
         }
+    }
+
+    @PutMapping
+    public RestaurantEvaluation update(@RequestBody @Valid RestaurantEvaluationDTO evaluationDTO){
+        Optional<Restaurant> aux = restaurantRepository.findById(evaluationDTO.getRestaurantId());
+        if (!aux.isEmpty()){
+            return repository.save(new RestaurantEvaluation(evaluationDTO, aux.get()));
+        } else {
+            throw new NullPointerException();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id){
+        repository.deleteById(id);
     }
 
 }

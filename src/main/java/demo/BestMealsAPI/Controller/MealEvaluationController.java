@@ -3,9 +3,9 @@ package demo.BestMealsAPI.Controller;
 import demo.BestMealsAPI.DTO.MealEvaluationDTO;
 import demo.BestMealsAPI.Model.Meal;
 import demo.BestMealsAPI.Model.MealEvaluation;
-import demo.BestMealsAPI.Model.RestaurantEvaluation;
 import demo.BestMealsAPI.Repository.MealEvaluationRepository;
 import demo.BestMealsAPI.Repository.MealRepository;
+import demo.BestMealsAPI.Model.MealEval;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +32,7 @@ public class MealEvaluationController {
 
     //Buscar todas as Avaliações de um restaurante
     @GetMapping("/Meal/{id}")
-    public List<MealEvaluation> searchEvaluations(@PathVariable("id") Integer id){
+    public List<MealEval> searchEvaluations(@PathVariable("id") Integer id){
         return mealRepository.findById(id).get().getEvaluations();
     }
 

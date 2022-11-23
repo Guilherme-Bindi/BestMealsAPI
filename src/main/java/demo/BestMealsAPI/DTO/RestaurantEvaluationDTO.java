@@ -1,5 +1,7 @@
 package demo.BestMealsAPI.DTO;
 
+import demo.BestMealsAPI.Model.RestaurantEvaluation;
+
 import javax.validation.constraints.NotNull;
 
 public class RestaurantEvaluationDTO {
@@ -10,6 +12,15 @@ public class RestaurantEvaluationDTO {
     private int evaluation;
 
     private String comment;
+
+    public RestaurantEvaluationDTO() {
+    }
+
+    public RestaurantEvaluationDTO(RestaurantEvaluation restaurantEvaluation) {
+        this.restaurantId = restaurantEvaluation.getId();
+        this.evaluation = restaurantEvaluation.getEvaluation();
+        this.comment = restaurantEvaluation.getComment();
+    }
 
     public int getRestaurantId() {
         return restaurantId;

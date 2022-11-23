@@ -34,7 +34,7 @@ public class Restaurant {
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<RestaurantEvaluation> evaluations;
+    private List<RestaurantEval> evaluations;
 
 
     public int getId() {
@@ -81,11 +81,11 @@ public class Restaurant {
         this.zipCode = zipCode;
     }
 
-    public List<RestaurantEvaluation> getEvaluations() {
+    public List<RestaurantEval> getEvaluations() {
         return evaluations;
     }
 
-    public void setEvaluations(List<RestaurantEvaluation> evaluations) {
+    public void setEvaluations(List<RestaurantEval> evaluations) {
         this.evaluations = evaluations;
     }
 
