@@ -67,4 +67,9 @@ public class RestaurantController {
         }
     }
 
+    @GetMapping("/mediaEvaluations/{id}")
+    public double mediaEvaluations(@PathVariable("id") Integer id){
+        return restaurantEvaluationRepository.findmediaDasAvaliacoes(id);
+    }
+
 }
