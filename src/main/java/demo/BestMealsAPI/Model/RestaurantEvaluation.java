@@ -1,6 +1,7 @@
 package demo.BestMealsAPI.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import demo.BestMealsAPI.DTO.RestaurantEvaluationDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -23,6 +24,12 @@ public class RestaurantEvaluation {
     public RestaurantEvaluation() {
     }
 
+    //Cadastra avaliação com DTO e restaurant
+    public RestaurantEvaluation(RestaurantEvaluationDTO evaluationDTO, Restaurant restaurant) {
+        this.restaurant = restaurant;
+        this.evaluation = evaluationDTO.getEvaluation();
+        this.comment = evaluationDTO.getComment();
+    }
 
     public int getId() {
         return id;
