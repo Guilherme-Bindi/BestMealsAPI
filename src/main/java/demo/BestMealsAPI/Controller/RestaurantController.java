@@ -6,6 +6,8 @@ import demo.BestMealsAPI.Repository.RestaurantEvalRepository;
 import demo.BestMealsAPI.Repository.RestaurantEvaluationRepository;
 import demo.BestMealsAPI.Repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,6 +46,12 @@ public class RestaurantController {
     @GetMapping("/nome/{name}")
     public List<Restaurant> searchName(@PathVariable("name") String name){
         return repository.findBynameContainingIgnoreCase(name);
+    }
+
+    //Busca todos os restaurante e retorna Pageable
+    @GetMapping("/Pageable")
+    public Page<RestaurantDTO> serachAllPageable(Pageable pageable){
+        return repository.findAll(pageable).map(RestaurantDTO::new);
     }
 
     //Cadastra novo objeto
