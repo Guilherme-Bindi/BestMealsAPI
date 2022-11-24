@@ -4,6 +4,7 @@ import demo.BestMealsAPI.DTO.MealDTO;
 import demo.BestMealsAPI.Model.Meal;
 import demo.BestMealsAPI.Model.MealEvaluation;
 import demo.BestMealsAPI.Model.Restaurant;
+import demo.BestMealsAPI.Repository.MealEvalRepository;
 import demo.BestMealsAPI.Repository.MealEvaluationRepository;
 import demo.BestMealsAPI.Repository.MealRepository;
 import demo.BestMealsAPI.Repository.RestaurantRepository;
@@ -29,6 +30,8 @@ public class MealController {
     @Autowired
     private MealEvaluationRepository mealEvaluationRepository;
 
+    @Autowired
+    private MealEvalRepository mealEvalRepository;
 
 
     @GetMapping("/{id}")
@@ -97,5 +100,10 @@ public class MealController {
     @GetMapping("/mediaEvaluations/{id}")
     public double mediaEvaluations(@PathVariable("id") Integer id){
         return mealEvaluationRepository.findmediaDasAvaliacoes(id);
+    }
+
+    @GetMapping("/mediaEval/{id}")
+    public double mediaEval(@PathVariable("id") Integer id){
+        return mealEvalRepository.findmediaDasAvaliacoes(id);
     }
 }
