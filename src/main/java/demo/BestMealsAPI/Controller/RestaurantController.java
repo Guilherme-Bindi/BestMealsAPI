@@ -1,5 +1,6 @@
 package demo.BestMealsAPI.Controller;
 
+import demo.BestMealsAPI.DTO.ListaDTO;
 import demo.BestMealsAPI.DTO.RestaurantDTO;
 import demo.BestMealsAPI.Model.Restaurant;
 import demo.BestMealsAPI.Repository.RestaurantEvalRepository;
@@ -52,6 +53,12 @@ public class RestaurantController {
     @GetMapping("/Pageable")
     public Page<RestaurantDTO> serachAllPageable(Pageable pageable){
         return repository.findAll(pageable).map(RestaurantDTO::new);
+    }
+
+    //Retorna Lista com todos os restaurantes
+    @GetMapping("all")
+    public ListaDTO searchAll(){
+        return new ListaDTO( repository.findAll() );
     }
 
     //Cadastra novo objeto

@@ -24,7 +24,7 @@ public class Restaurant {
 
     private String state;
 
-    @Pattern(regexp = "\\d[8]")
+//    @Pattern(regexp = "\\d[8]")
     private String zipCode;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
